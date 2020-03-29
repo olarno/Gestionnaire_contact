@@ -23,4 +23,7 @@ puis permettre de classer ces derniers par groupe afin de pouvoir mieux les orga
 - Relation de base de données (mcd fourni)
 - Utilisation de shema.org pour créer les entité ( documentation founi )
 
+## Premier visuel 
+
+
 ## Suite a ce projet
