@@ -1,0 +1,3 @@
+PERSON : id, gender,  name, familyName, address, email, phone, affilitaion
+have tag of, 1N TAG, 1N PERSON
+TAG: id, name

@@ -15,6 +15,6 @@ Pensez à créer un fichier .env.local (pour acces a la bdd)
 
 - Appliquer les migrations : 
 
-*lastVersion : Version20200329143235.php*
+*lastVersion : Version20200329143725.php*
 
 > ```bin/console d:m:m```
