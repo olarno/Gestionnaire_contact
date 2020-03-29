@@ -19,7 +19,7 @@ class Person
     private $id;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="string", length=255)
      */
     private $gender;
 
@@ -68,12 +68,12 @@ class Person
         return $this->id;
     }
 
-    public function getGender(): ?bool
+    public function getGender(): ?string
     {
         return $this->gender;
     }
 
-    public function setGender(bool $gender): self
+    public function setGender(string $gender): self
     {
         $this->gender = $gender;
 
