@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}READ
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<div class="row">
+			<h1>Contact</h1>
+		</div>
+
+		<div class="container mt-2">
+			<div class="card mb-3">
+				<h3 class="card-header">{{ person.familyName ~ ' ' ~ person.name }}</h3>
+				<div class="card-body">
+					<div class="row">
+						<div class="col-8">
+							<h5 class="card-title">Address :
+							</h5>
+							<h6 class="card-subtitle text-muted">{{ person.address }}</h6>
+						</div>
+						<div class="col-4">
+
+							{% for tag in person.tags %}
+								<span class="badge badge-pill badge-light">{{ tag.name }}</span>
+							{% endfor %}
+
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+
+					<div class="col-6">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">{{ person.phone }}</li>
+							<li class="list-group-item">{{ person.email }}</li>
+						</ul>
+					</div>
+
+					<div class="col-6">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">{{ person.affiliation }}</li>
+						</ul>
+					</div>
+					
+				</div>
+
+				<div class="card-body"></div>
+				<div class="card-footer text-muted">
+
+					<a href="{{ path('person_edit', {id: person.id}) }}" class="btn btn-outline-danger">Edit</a>
+
+					<form action="{{ path('person_delete', {id: person.id}) }}" method="post" class="d-inline">
+						<input type="hidden" name="_method" value="DELETE">
+						<button type="button" class="btn btn-outline-danger">Delete</button>
+					</form>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+{% endblock %}

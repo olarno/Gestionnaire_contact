@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BROWSE
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<div class="row">
+			<h1>Liste des contact</h1>
+		</div>
+
+		<div class="container mt-2">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th scope="col"></th>
+						<th scope="col">Name</th>
+						<th scope="col">FamilyName</th>
+						<th scope="col">email</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+
+					{% for person in people %}
+						<tr>
+							<td scope="row">
+								<a href="{{ path('person_read', {id: person.id}) }}" class="btn btn-outline-danger btn-sm">Read</a>
+								<a href="{{ path('person_edit', {id: person.id}) }}" class="btn btn-outline-danger btn-sm">Edit</a>
+							</td>
+							<td scope="col">{{ person.name }}</td>
+							<td scope="col">{{ person.familyName }}</td>
+							<td scope="col">{{ person.email }}</td>
+							<td scope="col">
+								<ul>
+
+									{% for tag in person.tags %}
+										<span class="badge badge-pill badge-light">{{ tag.name }}</span>
+									{% endfor %}
+									
+								</ul>
+							</td>
+						</tr>
+					{% endfor %}
+
+				</tbody>
+			</table>
+		</div>
+
+
+	</div>
+{% endblock %}
