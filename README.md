@@ -25,5 +25,8 @@ puis permettre de classer ces derniers par groupe afin de pouvoir mieux les orga
 
 ## Premier visuel 
 
+![browse](/Documentation/browse.png)
+
+![read](/Documentation/Read.png)
 
 ## Suite a ce projet
