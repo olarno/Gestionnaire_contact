@@ -49,11 +49,6 @@ class Person
     private $phone;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $affiliation;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="people")
      */
     private $tags;
@@ -136,18 +131,6 @@ class Person
     public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
-
-        return $this;
-    }
-
-    public function getAffiliation(): ?string
-    {
-        return $this->affiliation;
-    }
-
-    public function setAffiliation(?string $affiliation): self
-    {
-        $this->affiliation = $affiliation;
 
         return $this;
     }

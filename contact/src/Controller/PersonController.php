@@ -6,6 +6,7 @@ use App\Entity\Person;
 use App\Form\PersonType;
 use App\Repository\PersonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -24,6 +25,33 @@ class PersonController extends AbstractController
              'people' => $personRepository->findAll(),
         ]);
     }
+
+   /**
+     * @Route("/add", name="add")
+     */
+    public function add(Request $request)
+    {
+        $person = new Person();
+
+        $form = $this->createForm(PersonType::class, $person);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($person);
+            $em->flush();
+
+            return $this->redirectToRoute('person_browse');
+        }
+
+        return $this->render('person/add.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+
+
 
     /**
      * Read : Affiche la 'carte' d'un contact prècis
@@ -50,21 +78,7 @@ class PersonController extends AbstractController
         ]);
     }
 
-    /**
-     * Add : Affiche et traite le formulaire d'ajout d'un contact 
-     * @Route("/add", name="add")
-     */
-    public function add()
-    {
-        $person = new Person();
-
-        $form = $this->createForm(PersonType::class, $person);
-
-        return $this->render('person/add.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
+ 
 
     /**
      * Delete : Traite la suppression d'un contact

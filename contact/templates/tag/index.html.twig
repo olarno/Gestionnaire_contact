@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<div class="container">
+
+{% for tag in tags %}
+
+<a href="">{{ tag.name }}</a>
+
+{% endfor %}
+
+</div>
+{% endblock %}
