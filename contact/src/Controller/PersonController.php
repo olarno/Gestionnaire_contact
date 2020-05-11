@@ -59,7 +59,7 @@ class PersonController extends AbstractController
      */
     public function read(Person $person)
     {
-        return $this->render('person/read.html.twig', [
+            return $this->render('person/read.html.twig', [
             'person' => $person,
         ]);
     }
@@ -68,10 +68,19 @@ class PersonController extends AbstractController
      * Edit : Affiche et traite le formulaire de modification d'un contact existant
      * @Route("/{id}/edit", name="edit", requirements={"id":"\d+"})
      */
-    public function edit(Person $person)
+    public function edit(Person $person, Request $request)
     {
 
         $form = $this->createForm(PersonType::class, $person);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+
+            $em->flush();
+
+            return $this->redirectToRoute('person_read', ['id' => $person->getId()]);
+        }
         
         return $this->render('person/edit.html.twig', [
             'form' => $form->createView(),
