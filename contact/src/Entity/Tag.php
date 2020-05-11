@@ -82,4 +82,8 @@ class Tag
 
         return $this;
     }
+    public function howManyPeople()
+    {
+        return count($this->people);
+    }
 }

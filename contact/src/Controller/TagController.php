@@ -44,7 +44,7 @@ class TagController extends AbstractController
             $em->persist($tag);
             $em->flush();
             
-
+            $this->addFlash('success', 'Le tag  : '. $tag->getName() .' à bien été ajouté.');
             return $this->redirectToRoute('tag_browse');
         }
 
@@ -55,7 +55,7 @@ class TagController extends AbstractController
     }
 
     /**
-     * @Route("s/{id}", name="read")
+     * @Route("s/{id}", name="read", requirements={"id":"\d+"})
      */
     public function read(Tag $tag)
     {
@@ -63,6 +63,22 @@ class TagController extends AbstractController
             'tag' => $tag,
         ]);
     }
+
+        /**
+     * @Route("s/{id}", name="delete", requirements={"id":"\d+"})
+     */
+    public function delete(Tag $tag)
+    {
+        //todo : limiter les accès
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($tag);
+        $em->flush();
+    
+        $this->addFlash('primary', 'Le\'étiquette à bien été supprimée.');
+        return $this->redirectToRoute('tag_browse');
+    }
+
+
 
 
 }

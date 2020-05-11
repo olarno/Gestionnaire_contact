@@ -42,6 +42,8 @@ class PersonController extends AbstractController
             $em->persist($person);
             $em->flush();
 
+
+            $this->addFlash('success', 'Le contact : '. $person->getName() .' à bien été ajouté.');
             return $this->redirectToRoute('person_browse');
         }
 
@@ -79,9 +81,10 @@ class PersonController extends AbstractController
 
             $em->flush();
 
+            $this->addFlash('success', 'Le contact : '. $person->getName() .' à bien été modifié.');
             return $this->redirectToRoute('person_read', ['id' => $person->getId()]);
         }
-        
+
         return $this->render('person/edit.html.twig', [
             'form' => $form->createView(),
         ]);
@@ -95,10 +98,12 @@ class PersonController extends AbstractController
      */
     public function delete(Person $person)
     {
+            //todo : limiter les accès
         $em = $this->getDoctrine()->getManager();
         $em->remove($person);
         $em->flush();
     
+        $this->addFlash('primary', 'Le contact à bien été supprimé.');
         return $this->redirectToRoute('person_browse');
     }
 }

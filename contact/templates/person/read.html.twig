@@ -10,6 +10,8 @@
 			<h1>Contact</h1>
 		</div>
 
+{% include "partials/flash.html.twig"  %}
+
 		<div class="container mt-2">
 			<div class="card mb-3">
 				<h3 class="card-header">{{ person.familyName ~ ' ' ~ person.name }}</h3>
@@ -57,4 +59,15 @@
 
 		</div>
 	</div>
+		<script>
+		document.addEventListener('DOMContentLoaded', function () {
+document.querySelectorAll('form').forEach(function (element) {
+element.addEventListener('submit', function (evt) {
+if (confirm('Êtes-vous sûrs ?') == false) {
+evt.preventDefault();
+}
+});
+});
+});
+	</script>
 {% endblock %}

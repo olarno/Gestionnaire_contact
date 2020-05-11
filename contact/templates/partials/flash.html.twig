@@ -1,0 +1,9 @@
+<div class="row">
+        {% for label,  messages in app.flashes %}
+            {% for message in messages %}
+                <div class="mx-auto alert alert-dismissible alert-{{label}}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
