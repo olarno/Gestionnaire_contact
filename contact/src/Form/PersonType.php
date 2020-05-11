@@ -69,7 +69,7 @@ class PersonType extends AbstractType
                 'required' => false,
 
             ])
-            ->add('phone', IntegerType::class, [
+            ->add('phone', TextType::class, [
                 'label' => 'Numéro de téléphone :',
                 'constraints' => [
                     new Regex([
