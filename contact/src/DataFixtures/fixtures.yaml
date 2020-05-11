@@ -10,5 +10,4 @@ App\Entity\Person:
         address: '<address()>'
         email: '<email()>'
         phone: '<phoneNumber()>'
-        affiliation: '<company()>'
         tags : '<numberBetween(1, 2)>x @tag*'

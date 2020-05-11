@@ -10,8 +10,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
@@ -69,7 +69,7 @@ class PersonType extends AbstractType
                 'required' => false,
 
             ])
-            ->add('phone', NumberType::class, [
+            ->add('phone', IntegerType::class, [
                 'label' => 'Numéro de téléphone :',
                 'constraints' => [
                     new Regex([
