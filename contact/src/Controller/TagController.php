@@ -23,7 +23,7 @@ class TagController extends AbstractController
     {   
         $tags = $tagRepository->findAll();
 
-        return $this->render('tag/index.html.twig', [
+        return $this->render('tag/browse.html.twig', [
             'tags' => $tags,
         ]);
     }
@@ -51,6 +51,16 @@ class TagController extends AbstractController
 
         return $this->render('tag/add.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("s/{id}", name="read")
+     */
+    public function read(Tag $tag)
+    {
+        return $this->render('tag/read.html.twig', [
+            'tag' => $tag,
         ]);
     }
 

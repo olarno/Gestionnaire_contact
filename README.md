@@ -33,8 +33,12 @@ puis permettre de classer ces derniers par groupe afin de pouvoir mieux les orga
 
 - Mise en place des formulaires - avec validations & contraintes
 - Legere intégration visuelle pour les formulaire (utilisation de bootstrap)
+- Création des vues : Homepage (reprenant les listing), les listes par tags
 
 ![addPerson](/Documentation/add_person.png)
 
 ![addTag](/Documentation/add_tag.png)
 
+![homepage](/Documentation/Homepage.png)
+
+![byTag](/Documentation/Browse_by_tag.png)

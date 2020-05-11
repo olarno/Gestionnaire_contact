@@ -14,18 +14,32 @@
 <div class="row">
 
     <div class="card border-success mx-2" style="width : 30em">
-    <div class="card-header">Dernier ajout</div>
+    <div class="card-header">liste des contacts</div>
     <div class="card-body">
-        <h4 class="card-title"></h4>
-        <p class="card-text"></p>
+
+            <ul>
+            {% for person in persons %}
+                <li>
+                    <a href="{{ path('person_read', {id: person.id}) }}">{{ person.name }}</a>
+                </li>
+            {% endfor %}    
+            </ul>
+
     </div>
     </div>
 
     <div class="card border-success mx-2" style="width : 30em">
-    <div class="card-header">Header</div>
+    <div class="card-header">Liste des tags</div>
     <div class="card-body">
-        <h4 class="card-title">Secondary card title</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+            <ul>
+            {% for tag in tags %}
+                <li>
+                    <a href="{{ path('tag_read', {id: tag.id}) }}">{{ tag.name }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+
     </div>
     </div>
 

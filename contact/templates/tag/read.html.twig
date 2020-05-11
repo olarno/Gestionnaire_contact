@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ tag.name }}
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<div class="row">
+			<h1>Tag : {{ tag.name }}</h1>
+		</div>
+
+		<div class="container mt-2">
+
+    <div class="row">
+    {% for person in tag.people %}
+        <div class="col-4">
+			<div class="card mb-3">
+				<h3 class="card-header">{{ person.familyName ~ person.name  }}</h3>
+			        <ul class="list-group list-group-flush">
+					    <li class="list-group-item">{{ person.email }}</li>
+						<li class="list-group-item">{{ person.phone }}</li>
+					</ul>
+			</div>
+        </div>
+    {% endfor %}
+    </div>
+
+
+
+		</div>
+	</div>
+{% endblock %}
