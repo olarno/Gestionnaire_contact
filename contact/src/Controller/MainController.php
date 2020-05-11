@@ -14,7 +14,7 @@ class MainController extends AbstractController
      */
     public function index(PersonRepository $personRepository, TagRepository $tagRepository)
     {
-        $persons = $personRepository->findAll(); 
+        $persons = $personRepository->findBy([], ['id' => 'DESC']); 
         $tags = $tagRepository->findAll();
         return $this->render('main/index.html.twig', [
             'persons' => $persons,
